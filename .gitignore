@@ -1,0 +1,4 @@
+vendor/
+.idea/
+users_2018_10-26.sql
+composer.lock
