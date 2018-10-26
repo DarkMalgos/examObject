@@ -1,5 +1,11 @@
 {
     "require": {
-        "vlucas/phpdotenv": "^2.5"
+        "vlucas/phpdotenv": "^2.5",
+        "nesbot/carbon": "^2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Exam\\":"App/model/"
+        }
     }
 }

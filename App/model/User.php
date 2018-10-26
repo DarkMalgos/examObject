@@ -1,25 +1,25 @@
 <?php
 
-/**
- * Class User
- *
- * @package \\${NAMESPACE}
- */
-class User
+namespace Exam;
+
+use Exam\Model;
+
+class User extends Model
 {
     protected $first_name;
     protected $last_name;
     protected $email;
     protected $password;
-    protected $created_at;
-    protected $updated_at;
+    protected $date;
 
-    public function __construct()
+    public function __construct($created_at, $updated_at)
     {
-        $this->created_at = new Date('Y-m-d h:m:s');
-        $this->updated_at = new Date('Y-m-d h:m:s');
+        $this->date = new Model($created_at, $updated_at);
     }
 
+    public function getFullname() {
+        return $this->first_name.' '.$this->last_name;
+    }
     /**
      * @return mixed
      */
@@ -34,7 +34,7 @@ class User
     public function setFirstName($first_name)
     {
         $this->first_name = $first_name;
-        $this->updated_at = new Date('Y-m-d h:m:s');
+        $this->date->setUpdatedAt();
     }
 
     /**
@@ -51,7 +51,7 @@ class User
     public function setLastName($last_name)
     {
         $this->last_name = $last_name;
-        $this->updated_at = new Date('Y-m-d h:m:s');
+        $this->date->setUpdatedAt();
     }
 
     /**
@@ -68,7 +68,7 @@ class User
     public function setEmail($email)
     {
         $this->email = $email;
-        $this->updated_at = new Date('Y-m-d h:m:s');
+        $this->date->setUpdatedAt();
     }
 
     /**
@@ -85,39 +85,7 @@ class User
     public function setPassword($password)
     {
         $this->password = $password;
-        $this->updated_at = new Date('Y-m-d h:m:s');
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->created_at;
-    }
-
-    /**
-     * @param \DateTime $created_at
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->created_at = $created_at;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updated_at;
-    }
-
-    /**
-     * @param \DateTime $updated_at
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->updated_at = $updated_at;
+        $this->date->setUpdatedAt();
     }
 
 }
